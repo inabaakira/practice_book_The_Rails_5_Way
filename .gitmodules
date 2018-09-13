@@ -1,0 +1,3 @@
+[submodule "rails_5_2_1"]
+	path = rails_5_2_1
+	url = ./rails_5_2_1/
