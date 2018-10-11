@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   # mount HelloApp, at: '/hello'
   # mount HelloApp => '/hello'
   get "/help" => 'help#index', as: 'help'
-  get "/item/:id" => "items#show", as: "item"
+  # get "/item/:id" => "items#show", as: "item"
+  get "/auction/:auction_id/item/:id" => "items#show", as: "item"
 end
