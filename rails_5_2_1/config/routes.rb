@@ -6,4 +6,13 @@ Rails.application.routes.draw do
   get "/help" => 'help#index', as: 'help'
   # get "/item/:id" => "items#show", as: "item"
   get "/auction/:auction_id/item/:id" => "items#show", as: "item"
+  # scope controller: :help do
+  #   get 'help/index' => :index
+  # end
+  # scope :auctions, :archived do
+  #   get ':id' => "items#show"
+  # end
+  scope :auctions, controller: :auctions, as: 'admin' do
+    get 'new' => :new, as: 'new_auction'
+  end
 end
