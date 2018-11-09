@@ -19,11 +19,14 @@ Rails.application.routes.draw do
   #   get 'edit/:id' => :edit
   #   post 'pause/:id' => :pause
   # end
-  scope path: '/auctions', controller: :autctions do
+  scope path: '/auctions', controller: :auctions do
     get 'new' => :new
     constraints id: /\d+/ do
       get 'edit/:id' => :edit
       post 'pause/:id' => :pause
+    end
+    constraints(DateFormatConstraint) do
+      get 'since/:date' => :since
     end
   end
 end
