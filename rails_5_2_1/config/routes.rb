@@ -15,8 +15,15 @@ Rails.application.routes.draw do
   # scope :auctions, controller: :auctions, as: 'admin' do
   #   get 'new' => :new, as: 'new_auction'
   # end
-  scope controller: :auctions, constraints: {:id => /\d+/} do
-    get 'edit/:id' => :edit
-    post 'pause/:id' => :pause
+  # scope controller: :auctions, constraints: {:id => /\d+/} do
+  #   get 'edit/:id' => :edit
+  #   post 'pause/:id' => :pause
+  # end
+  scope path: '/auctions', controller: :autctions do
+    get 'new' => :new
+    constraints id: /\d+/ do
+      get 'edit/:id' => :edit
+      post 'pause/:id' => :pause
+    end
   end
 end
