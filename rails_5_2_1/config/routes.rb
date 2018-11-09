@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'root#index'
   # get "/hello", to: proc { |env| [200, {}, ["Hello world"]] }
   # mount HelloApp, at: '/hello'
   # mount HelloApp => '/hello'
@@ -29,4 +30,5 @@ Rails.application.routes.draw do
       get 'since/:date' => :since
     end
   end
+  direct(:apple) { "http://www.apple.com" }
 end
