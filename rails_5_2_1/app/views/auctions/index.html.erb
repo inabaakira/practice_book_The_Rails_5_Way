@@ -1,7 +1,23 @@
-<% Item.all.each do |item| %>
-  <%= link_to item.description, auction_path(item.id) %>
+<% items = Item.all %>
+<% items.each do |item| %>
+  <%= link_to item.description, auction_path(item) %>
 
-  <%= form_tag auctions_path %>
+  <%= link_to "Delete", auction_path(item), method: :delete %>
 
-  <%= link_to "Click here to view all auctions", auctions_path %>
 <% end  %>
+
+<%= items[0].description  %>
+
+<%= form_for "auction", url: auction_path(items[0]), html: {method: :patch} do |f| %>
+  <%= f.text_field :description %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<%= form_tag auctions_path do %>
+<% end %>
+
+<%= link_to "Click here to view all auctions", auctions_path %>
+
+<%= link_to "Create a new item", new_auction_path %>
+
+<%= link_to "Edit this item", edit_auction_url(items[0]) %>
