@@ -20,15 +20,19 @@ Rails.application.routes.draw do
   #   get 'edit/:id' => :edit
   #   post 'pause/:id' => :pause
   # end
-  scope path: '/auctions', controller: :auctions do
-    get 'new' => :new
-    constraints id: /\d+/ do
-      get 'edit/:id' => :edit
-      post 'pause/:id' => :pause
-    end
-    constraints(DateFormatConstraint) do
-      get 'since/:date' => :since
-    end
-  end
+  # scope path: '/auctions', controller: :auctions do
+  #   get '/' => :index
+  #   get 'index' => :index
+  #   get 'new' => :new
+  #   get ':id' => "auctions#show", as: 'auction'
+  #   constraints id: /\d+/ do
+  #     get 'edit/:id' => :edit
+  #     post 'pause/:id' => :pause
+  #   end
+  #   constraints(DateFormatConstraint) do
+  #     get 'since/:date' => :since
+  #   end
+  # end
+  resources :auctions
   direct(:apple) { "http://www.apple.com" }
 end

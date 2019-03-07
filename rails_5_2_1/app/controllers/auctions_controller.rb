@@ -1,4 +1,7 @@
 class AuctionsController < ApplicationController
+  def index
+  end
+
   def new
     render plain: "NEW"
   end
@@ -13,5 +16,8 @@ class AuctionsController < ApplicationController
 
   def since
     render plain: "SINCE"
+  end
+
+  def show
   end
 end

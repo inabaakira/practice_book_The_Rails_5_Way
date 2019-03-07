@@ -1,0 +1,7 @@
+<% Item.all.each do |item| %>
+  <%= link_to item.description, auction_path(item.id) %>
+
+  <%= form_tag auctions_path %>
+
+  <%= link_to "Click here to view all auctions", auctions_path %>
+<% end  %>
