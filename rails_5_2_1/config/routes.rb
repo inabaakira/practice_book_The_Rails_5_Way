@@ -35,4 +35,5 @@ Rails.application.routes.draw do
   # end
   resources :auctions
   direct(:apple) { "http://www.apple.com" }
+  resource :profile
 end
