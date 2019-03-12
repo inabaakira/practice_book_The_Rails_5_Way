@@ -21,3 +21,6 @@
 <%= link_to "Create a new item", new_auction_path %>
 
 <%= link_to "Edit this item", edit_auction_url(items[0]) %>
+
+<%= items[0] %>
+<%= link_to "See all bids", auction_bids_path(items[0]) %>

@@ -33,7 +33,9 @@ Rails.application.routes.draw do
   #     get 'since/:date' => :since
   #   end
   # end
-  resources :auctions
+  resources :auctions do
+    resources :bids
+  end
   direct(:apple) { "http://www.apple.com" }
   resource :profile
 end
