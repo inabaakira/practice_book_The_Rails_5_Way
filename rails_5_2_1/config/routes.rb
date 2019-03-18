@@ -3,7 +3,16 @@ Rails.application.routes.draw do
   root to: 'root#index'
   get "/help" => 'help#index', as: 'help'
 
-  resources :auctions do
-    match :terminate, via: [:get, :post], on: :collection
+  resources :projects, path_names: { new: 'nuevo', edit: 'cambiar' }
+  resources :photos, controller: :images
+
+  resources :reports do
+    new do
+      post :preview
+    end
+  end
+
+  resources :bids do
+    resources :retraction
   end
 end

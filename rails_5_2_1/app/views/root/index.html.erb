@@ -1,2 +1,3 @@
-hello root
-<%= apple_url %>
+<%= form_for(:report, url: preview_new_report_path) do |f| %>
+  <%= f.submit "Preview" %>
+<% end %>
