@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # mount HelloApp => '/hello'
   get "/help" => 'help#index', as: 'help'
   # get "/item/:id" => "items#show", as: "item"
-  get "/auction/:auction_id/item/:id" => "items#show", as: "item"
+  # get "/auction/:auction_id/item/:id" => "items#show", as: "item"
   # scope controller: :help do
   #   get 'help/index' => :index
   # end
@@ -36,6 +36,13 @@ Rails.application.routes.draw do
   resources :auctions do
     resources :bids
   end
+
+  resources :bids do
+    resources :comments
+  end
+
+  resources :comments
+
   direct(:apple) { "http://www.apple.com" }
   resource :profile
 end
