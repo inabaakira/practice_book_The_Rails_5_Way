@@ -3,27 +3,9 @@ Rails.application.routes.draw do
   root to: 'root#index'
   get "/help" => 'help#index', as: 'help'
 
-  # resources :auctions do
-  #   resources :bids
-  #   resources :comments
-  #   resources :image_attachments, only: :index
-  # end
-
-  # resources :bids do
-  #   resources :comments
-  # end
-
-  concern :commentable do
-    resources :comments
+  resources :auctions do
+    resources :bids do
+      match :retract, via: [:get, :post], on: :member
+    end
   end
-
-  concern :image_attachable do
-    resources :image_attachments, only: :index
-  end
-
-  resources :auctions, concerns: [:commentable, :image_attachable] do
-    resources :bids
-  end
-
-  resources :bids, concerns: :commentable
 end

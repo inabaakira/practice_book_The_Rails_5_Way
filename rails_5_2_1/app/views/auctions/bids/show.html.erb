@@ -1,1 +1,5 @@
 auction_id is <%= params[:auction_id] %>, bid_id is <%= params[:id] %>
+<%= link_to "Retract", retract_auction_bid_path(1, 2) %>
+<%= link_to "Retract", retract_auction_bid_path(1, 2), method: :post %>
+
+
