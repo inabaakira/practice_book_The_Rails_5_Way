@@ -34,14 +34,12 @@ Rails.application.routes.draw do
   #   end
   # end
   resources :auctions do
-    resources :bids
+    shallow do
+      resources :bids do
+        resources :comments
+      end
+    end
   end
-
-  resources :bids do
-    resources :comments
-  end
-
-  resources :comments
 
   direct(:apple) { "http://www.apple.com" }
   resource :profile
